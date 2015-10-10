@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd"
+	default-lazy-init="true">
+	
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="unauthorizedUrl" value="/pub/unauthorized.shtml" />
+		<property name="filterChainDefinitionMap">
+			<map>
+				<entry key="/pubRanks.shtml" value="anon" />
+				<entry key="/pub/*.shtml" value="anon" />
+				<entry key="/active.shtml" value="anon" />
+				<entry key="/mailAuth.shtml" value="anon" />
+				<entry key="/forgetPwd.shtml" value="anon" />
+				<entry key="/retrievePwd.shtml" value="anon" />
+				<entry key="/retrieveSuccess.shtml" value="anon" />
+				<entry key="/*.shtml" value="userAuthc" />
+				<entry key="/login.shtml" value="userAuthc" />
+				<entry key="/logout.shtml" value="userAuthc" />
+
+			</map>
+		</property>
+		<property name="filters">
+			<map>
+			    <entry key="userAuthc" value-ref="userAuthc"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="userAuthc" class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter">
+        <property name="loginUrl" value="/login.shtml" />
+		<property name="successUrl" value="/index.shtml" />
+    </bean>
+	
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="authenticationRealm" />
+		<property name="cacheManager" ref="shiroCacheManager" />
+	</bean>
+	
+	<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManager" ref="ehCacheManager" />
+	</bean>
+
+	<bean id="authenticationRealm" class="com.miaozhen.util.AuthenticationRealm">
+	</bean>
+
+	<bean id="authenticationFilter"
+		class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter" />
+
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+
+</beans>

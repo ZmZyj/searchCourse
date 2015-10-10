@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" updateCheck="false">
+
+	<diskStore path="${java.io.tmpdir}/${system.project_name}/cache" />
+    
+    <defaultCache maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="false"/>
+    
+    <cache name="industryList" maxElementsInMemory="10" timeToIdleSeconds="7200" timeToLiveSeconds="7200" eternal="false" overflowToDisk="false" />
+    <cache name="rankList" maxElementsInMemory="1000" timeToIdleSeconds="7200" timeToLiveSeconds="7200" eternal="false" overflowToDisk="false" />
+    <cache name="registerInfo" maxElementsInMemory="10000" timeToIdleSeconds="3600" timeToLiveSeconds="3600" eternal="false" overflowToDisk="false" />
+    <cache name="pwdForgetInfo" maxElementsInMemory="10000" timeToIdleSeconds="3600" timeToLiveSeconds="3600" eternal="false" overflowToDisk="false" />
+    <cache name="mediaHotList" maxElementsInMemory="10" timeToIdleSeconds="120" timeToLiveSeconds="120" eternal="false" overflowToDisk="false" />
+    <cache name="industryHotList" maxElementsInMemory="10" timeToIdleSeconds="120" timeToLiveSeconds="120" eternal="false" overflowToDisk="false" />
+    <cache name="friendHotList" maxElementsInMemory="10" timeToIdleSeconds="120" timeToLiveSeconds="120" eternal="false" overflowToDisk="false" />
+</ehcache>

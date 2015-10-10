@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="withdataapi"
+  id="myeclipse.1421909751916"
+  context-root="/withdataapi"
+  j2ee-spec="6.0"
+  archive="withdataapi.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
