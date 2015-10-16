@@ -12,10 +12,11 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.Field.TermVector;
 import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.queryparser.classic.QueryParser;
+import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.Searcher;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
@@ -44,7 +45,7 @@ public class SearchLogic {
 	
 	private static File indexFile = null;
 	
-	private static IndexSearcher searcher = null;
+	private static Searcher searcher = null;
 	
 	private static Analyzer analyzer = null;
 	
@@ -139,10 +140,10 @@ public class SearchLogic {
 			searcher = new IndexSearcher(FSDirectory.open(indexFile));	
 		}
 		searcher.setSimilarity(new IKSimilarity());
-		QueryParser parser = new QueryParser("abstract_cn",new IKAnalyzer());
+		QueryParser parser = new QueryParser(Version.LUCENE_30,"abstract_cn",new IKAnalyzer());
 		Query query = parser.parse(queryStr);
 
-		TopDocs topDocs = searcher.search(query, 100);
+		TopDocs topDocs = searcher.search(query, searcher.maxDoc());
 		
 		return topDocs;
 	}

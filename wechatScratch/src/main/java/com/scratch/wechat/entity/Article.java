@@ -2,7 +2,7 @@ package com.scratch.wechat.entity;
 
 public class Article {
 
-	private String articleId;
+	private String articleid;
 	
 	private String title;
 	
@@ -10,12 +10,12 @@ public class Article {
 	
 	private String tag;
 
-	public String getArticleId() {
-		return articleId;
+	public String getArticleid() {
+		return articleid;
 	}
 
-	public void setArticleId(String articleId) {
-		this.articleId = articleId;
+	public void setArticleid(String articleid) {
+		this.articleid = articleid;
 	}
 
 	public String getTitle() {
