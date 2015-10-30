@@ -9,7 +9,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.scratch.wechat.entity.Article;
 import com.scratch.wechat.logic.DbSaver;
-import com.scratch.wechat.logic.IndexCreater;
 import com.scratch.wechat.logic.Scratcher;
 
 
@@ -24,6 +23,5 @@ public class Main {
         logger.info("Application start at " + context.getStartupDate());
         List<Article> list = Scratcher.scratchArticles();
         DbSaver.saveArticlesToDb(list);
-        IndexCreater.createIndex();
     }
 }
