@@ -1,6 +1,2 @@
-#Mon Mar 16 17:58:22 CST 2015
 eclipse.preferences.version=1
-encoding//sql/createTable.sql=UTF-8
-encoding//sql/mysql/01.createTable.sql=UTF-8
-encoding//sql/pgsql/01.createTable.sql=UTF-8
-encoding//src/main/java=UTF-8
+encoding//src/main/webapp/index.jsp=UTF-8
