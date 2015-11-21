@@ -1,0 +1,54 @@
+*{
+	font-family: "Microsoft YaHei";
+	font-size:14px;
+}
+a{
+	text-decoration: none;
+	color:#385068;
+}
+
+.f-left{
+	float:left;
+}
+.f-right{
+	float:right;
+}
+.mar-left-5{
+	margin-left:5px;
+}
+.mar-right-10{
+	margin-right:10px;
+}
+.no-border{
+	border:0;
+}
+.clear{
+	clear:both;
+}
+.green{
+	color:#000;
+	background-color:#16b394;
+	filter:alpha(opacity=80); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.8; /*Firefox私有，透明度50%*/
+	opacity:0.8;/*其他，透明度50%*/
+}
+.td-red{
+	color:#d8534f;
+}
+.td-green{
+	color:#5cb85c;
+}
+/*错误提示*/
+.msg{
+	color:#ff0000;
+	font-size:14px;
+	padding:10px 0;
+}
+
+.op-tip{
+	margin:0 auto;
+	padding:10px 0;
+	width:60%;
+	color:#ff0000;
+	text-align:center;	
+}
